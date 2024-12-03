@@ -8,6 +8,7 @@ import { MdOutlineIndeterminateCheckBox } from "react-icons/md";
 import { RiAccountPinCircleLine } from "react-icons/ri";
 
 import { Inter } from "next/font/google";
+import FeedCard from "@/components/FeedCard";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -70,7 +71,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="col-span-6 border-r-[1px] border-l-[1px] border-gray-400"></div>
+        <div className="col-span-6 border-r-[1px] border-l-[1px] border-gray-400">
+          <FeedCard />
+        </div>
         <div className="col-span-3"></div>
       </div>
     </div>
