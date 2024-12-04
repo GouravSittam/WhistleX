@@ -6,11 +6,9 @@ import { IoIosNotifications } from "react-icons/io";
 import { IoMailUnreadOutline } from "react-icons/io5";
 import { MdOutlineIndeterminateCheckBox } from "react-icons/md";
 import { RiAccountPinCircleLine } from "react-icons/ri";
+import { CiCircleMore } from "react-icons/ci";
 
-import { Inter } from "next/font/google";
 import FeedCard from "@/components/FeedCard";
-
-const inter = Inter({ subsets: ["latin"] });
 
 interface XSidebarButton {
   title: string;
@@ -42,42 +40,54 @@ const sidebarMenuItems: XSidebarButton[] = [
     title: "Profile",
     icon: <RiAccountPinCircleLine />,
   },
+  {
+    title: "More",
+    icon: <CiCircleMore />,
+  },
 ];
 
 export default function Home() {
   return (
-    <div className={inter.className}>
+    <div>
       <div className="grid grid-cols-12 h-screen w-screen px-56">
-        <div className=" col-span-3  pt-8 px-4">
-          <div className="text-3xl h-fit w-fit hover:bg-gray-800 rounded-full p-4 cursor-pointer transition-all">
+        <div className=" col-span-3 pt-1 px-4">
+          <div className="text-2xl h-fit w-fit hover:bg-gray-800 rounded-full p-4 cursor-pointer transition-all">
             <FaXTwitter />
           </div>
-          <div className="mt-4 text-2xl  pr-4">
+          <div className="mt-1 text-xl  pr-4">
             <ul>
               {sidebarMenuItems.map((item) => (
                 <li
-                  className="flex justify-start items-center gap-4  hover:bg-gray-800 rounded-full px-4 py-2 w-fit cursor-pointer"
+                  className="flex justify-start items-center gap-4  hover:bg-gray-800 rounded-full px-3 py-3 w-fit cursor-pointer"
                   key={item.title}
                 >
-                  <span>{item.icon}</span>
+                  <span className="text-3xl">{item.icon}</span>
                   <span>{item.title}</span>
                 </li>
               ))}
             </ul>
             <div className="mt-5 pr-3 ">
-              <button className="bg-[#1d9bf0] font-semibold text-lg p-4 rounded-full w-full ">
+              <button className="bg-[#1d9bf0] font-semibold text-lg py-2 px-4 rounded-full w-full ">
                 Post
               </button>
             </div>
           </div>
         </div>
-        <div className="col-span-6 border-r-[1px] border-l-[1px] border border-gray-600">
+        <div className="col-span-7 border-r-[1px] border-l-[1px] h-screen overflow-scroll border-gray-600">
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
           <FeedCard />
           <FeedCard />
           <FeedCard />
           <FeedCard />
         </div>
-        <div className="col-span-3"></div>
+        <div className="col-span-2"></div>
       </div>
     </div>
   );
